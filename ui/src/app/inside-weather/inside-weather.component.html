@@ -1,0 +1,38 @@
+<mat-card style="height: 80vh;">
+    <mat-card-header fxLayout="row" fxLayoutAlign="center">
+        <mat-card-title>
+            Inside
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutGap="10px grid">
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50" class="text-right">
+                Current:
+            </div>
+            <div fxFlex="50" class="text-left">
+                <span *ngIf="!displayCelcius">
+                    {{insideWeather?.temperature | fahrenheit | number:'1.0-0'}} &#176;F
+                </span>
+                <span *ngIf="displayCelcius">
+                    {{insideWeather?.temperature | number:'1.0-0'}} &#176;C
+                </span>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50" class="text-right">
+                Humidity:
+            </div>
+            <div fxFlex="50" class="text-left">
+                {{insideWeather?.humidity | number:'1.0-0'}} %
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50" class="text-right">
+                Pressure:
+            </div>
+            <div fxFlex="50" class="text-left">
+                {{insideWeather?.pressure | number:'1.0-0'}}
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

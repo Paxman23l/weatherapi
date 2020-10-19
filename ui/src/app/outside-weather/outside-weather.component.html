@@ -1,0 +1,64 @@
+<mat-card style="height: 80vh;">
+    <mat-card-header fxLayout="row" fxLayoutAlign="center">
+        <mat-card-title>
+            {{ outsideWeather?.name }}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column">
+        <div fxFlex fxLayout="row" fxLayoutGap="10px grid">
+            <div fxFlex="50" class="text-right">
+                Current:
+            </div>
+            <div fxFlex="50">
+                <span *ngIf="!displayCelcius">
+                    {{outsideWeather?.main.temp | fahrenheit | number:'1.0-0'}} &#176;F
+                </span>
+                <span *ngIf="displayCelcius">
+                    {{outsideWeather?.main.temp | number:'1.0-0'}} &#176;C
+                </span>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px grid">
+            <div fxFlex="50" class="text-right">
+                Low:
+            </div>
+            <div fxFlex="50">
+                <span *ngIf="!displayCelcius">
+                    {{outsideWeather?.main.temp_min | fahrenheit | number:'1.0-0'}} &#176;F
+                </span>
+                <span *ngIf="displayCelcius">
+                    {{outsideWeather?.main.temp_min | number:'1.0-0'}} &#176;C
+                </span>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50" class="text-right">
+                High:
+            </div>
+            <div fxFlex="50">
+                <span *ngIf="!displayCelcius">
+                    {{outsideWeather?.main.temp_max | fahrenheit | number:'1.0-0'}} &#176;F
+                </span>
+                <span *ngIf="displayCelcius">
+                    {{outsideWeather?.main.temp_max | number:'1.0-0'}} &#176;C
+                </span>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50" class="text-right">
+                Humidity:
+            </div>
+            <div fxFlex="50">
+                {{outsideWeather?.main.humidity | number:'1.0-0'}} %
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50" class="text-right">
+                Pressure:
+            </div>
+            <div fxFlex="50">
+                {{outsideWeather?.main.pressure | number:'1.0-0'}}
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

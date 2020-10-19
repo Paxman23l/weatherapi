@@ -1,0 +1,17 @@
+<div fxLayout="column" fxLayoutGap="10px">
+  <mat-card fxFlex="100" fxLayout="row" fxLayoutAlign="center">
+    <mat-card-content>
+      <section class="example-section">
+        <mat-slide-toggle class="example-margin" [color]="" [checked]="checked" (change)="checked = $event.checked">
+          Measurement: <span *ngIf="!checked">&#176;F</span><span *ngIf="checked">&#176;C</span>
+        </mat-slide-toggle>
+      </section>
+    </mat-card-content>
+  </mat-card>
+  
+  <div fxFlex="100" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="10px">
+    <app-outside-weather fxFlex [displayCelcius]="checked"></app-outside-weather>
+    <app-video fxFlex></app-video>
+    <app-inside-weather fxFlex [displayCelcius]="checked"></app-inside-weather>
+  </div>
+</div>
